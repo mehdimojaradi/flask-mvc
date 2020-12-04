@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}  
+{% block content %}
+      <h3>Add New Employee</h3>  
+      <hr/>  
+        
+      {%- for category, message in get_flashed_messages(with_categories = true) %}  
+         <div class = "alert alert-danger">  
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+               {{ message }}  
+         </div>  
+      {%- endfor %}  
+      <form action = "{{ request.path }}" method = "post"> 
+      <div class = "form-group">
+         <input type = "text" name = "name" class = "form-control" placeholder = "Name" /><br>  
+      </div>
+      <div class = "form-group">
+         <input type = "text" name = "salary"  class = "form-control" placeholder = "salary" /><br>  
+      </div>
+           
+      <div class = "form-group">
+         <textarea name = "age"   class = "form-control" placeholder = "age"></textarea><br>  
+      </div>
+           
+      <div class = "form-group">
+         <input type = "text" name = "pin"  class = "form-control" placeholder = "pin" /><br>  
+      </div>
+           
+      <input type = "submit" class = "btn btn-default" value = "Submit" />  
+      </form>  
+
+{% endblock content %}

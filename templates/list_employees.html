@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}  
+{% block content %}
+      <h3>Employees List</h3>  
+      <hr/> 
+      {%- for category, message in get_flashed_messages(with_categories = true) %}  
+         <div class="alert alert-info alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                  {{ message }}  
+         </div>
+      {%- endfor %}
+      <table class="table table-bordered">  
+         <thead>  
+            <tr>  
+               <th>Name</th>  
+               <th>Salary</th>  
+               <th>Age</th>  
+               <th>Pin</th>  
+            </tr>  
+         </thead>  
+  
+         <tbody>  
+            {% for employee in employees %}  
+               <tr>  
+                  <td>{{- employee.name }}</td>  
+                  <td>{{ employee.salary }}</td>  
+                  <td>{{ employee.age }}</td>  
+                  <td>{{ employee.pin }}</td>  
+               </tr>  
+            {% endfor %}  
+         </tbody>  
+      </table>  
+  
+{% endblock content %}
